@@ -5,8 +5,8 @@ from backend.db.session import get_raw_db
 from backend.control.period_control import get_or_create_period
 
 if __name__ == "__main__":
-    start_date = end_date = "2025-01-01"
-    # start_date = end_date = "2025-01-01"
+    # start_date = end_date = "2025-04-16"
+    start_date = end_date = "2025-01-04"
     reprocessing = True
 
     db = next(get_raw_db())

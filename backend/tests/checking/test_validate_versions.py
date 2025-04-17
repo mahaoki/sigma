@@ -35,22 +35,31 @@ def test_validate_all_statuses(db_session, period):
     db_session.add(ProcurementCheck(
         pncp_control_number=pncp_new,
         period_id=period.id,
-        update_date=datetime(2025, 1, 14, 0, 0),
-        update_date_global=datetime(2025, 1, 14, 0, 0),
+        update_date=datetime(2025, 1, 14, 10, 0),
+        update_date_global=datetime(2025, 1, 14, 10, 0),
         status="pending",
         period_date=period.start_date,
         action="publication"
     ))
 
-    # UPDATED
+    # UPDATED (duplicado: publicação e atualização)
     db_session.add(ProcurementCheck(
         pncp_control_number=pncp_updated,
         period_id=period.id,
-        update_date=datetime(2025, 1, 14, 0, 0),
-        update_date_global=datetime(2025, 1, 14, 0, 0),
+        update_date=datetime(2025, 1, 14, 10, 0),
+        update_date_global=datetime(2025, 1, 14, 10, 0),
         status="pending",
         period_date=period.start_date,
         action="publication"
+    ))
+    db_session.add(ProcurementCheck(  # duplicado, com data mais recente
+        pncp_control_number=pncp_updated,
+        period_id=period.id,
+        update_date=datetime(2025, 1, 14, 15, 0),
+        update_date_global=datetime(2025, 1, 14, 15, 0),
+        status="pending",
+        period_date=period.start_date,
+        action="update"
     ))
     db_session.add(Procurement(
         pncp_control_number=pncp_updated,
@@ -83,4 +92,5 @@ def test_validate_all_statuses(db_session, period):
 
     assert result["new"] == 1
     assert result["updated"] == 1
-    assert result["ignored"] == 1
+    assert result["ignored"] == 2  # um por duplicata + um por data igual
+
