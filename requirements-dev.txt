@@ -1,0 +1,9 @@
+# Dev e Testes
+pytest
+pytest-mock
+coverage
+mypy
+ruff
+ipython
+httpx
+sqlalchemy-utils

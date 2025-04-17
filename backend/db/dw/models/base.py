@@ -1,0 +1,61 @@
+from sqlalchemy.orm import declarative_base
+
+DwBase = declarative_base()
+
+# Importa modelos de fatos
+from backend.database.dw.models.facts import (
+    f_ata_registro_preco,
+    f_contratacao,
+    f_contrato,
+    f_documento_ata,
+    f_documento_contratacao,
+    f_documento_contrato,
+    f_documento_termo_contrato,
+    f_instrumento_cobranca,
+    f_item_contratacao,
+    f_nota_fiscal_evento,
+    f_nota_fiscal_item,
+    f_resultado_item,
+    f_termo_contrato,
+)
+
+# Importa modelos de dimensões
+from backend.database.dw.models.dimensions import (
+    d_amparo_legal,
+    d_catalogo,
+    d_categoria_item_catalogo,
+    d_categoria_item,
+    d_categoria_processo,
+    d_criterio_julgamento,
+    d_esfera,
+    d_evento_nota_fiscal,
+    d_fornecedor,
+    d_hora,
+    d_material_servico,
+    d_modalidade_contratacao,
+    d_modo_disputa,
+    d_moeda,
+    d_motivo_cancelamento,
+    d_municipio,
+    d_natureza_juridica,
+    d_ncm_nbs,
+    d_nota_fiscal,
+    d_orgao,
+    d_pais,
+    d_poder,
+    d_porte_fornecedor,
+    d_situacao_compra_item,
+    d_situacao_resultado,
+    d_status_contratacao,
+    d_tempo,
+    d_tipo_beneficio,
+    d_tipo_contrato,
+    d_tipo_documento,
+    d_tipo_instrumento_cobranca,
+    d_tipo_instrumento_convocatorio,
+    d_tipo_pessoa,
+    d_tipo_termo_contrato,
+    d_unidade_administrativa,
+    d_unidade_federativa,
+    d_usuario,
+)

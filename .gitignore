@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+
+# Celery
+celerybeat-schedule
+*.log
+
+# Editor configs
+.vscode/
+.idea/
+
+# DB e cache temporários
+*.sqlite3
+*.db
+dump.rdb
+
+# Docker
+*.pid
+

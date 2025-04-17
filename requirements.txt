@@ -1,0 +1,12 @@
+# Coleta e infraestrutura
+celery==5.3.*
+redis
+sqlalchemy>=1.4
+psycopg2-binary  # PostgreSQL driver
+pydantic>=2.0
+pydantic-settings
+python-dotenv
+sqlalchemy-utils
+requests
+fastapi
+uvicorn
